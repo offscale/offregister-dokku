@@ -14,13 +14,15 @@ def install(*args, **kwargs):
         'DOKKU_KEY_FILE': ('key_file', key_file),
         'DOKKU_SKIP_KEY_FILE': ('skip_key_file', False),
         'DOKKU_VHOST_ENABLE': ('vhost_enable', False),
-        'DOKKU_WEB_CONFIG': ('web_config', True)
+        'DOKKU_WEB_CONFIG': ('web_config', False)
     }
 
     if not cmd_avail('docker'):
-        run('wget -nv -O - https://get.docker.com/ | sh')
+        run('wget -qN https://get.docker.com -o docker_install.sh')
+        run('sh docker_install.sh')
     if not cmd_avail('dokku'):  # is_installed('dokku'):
-        run('wget -nv -O - https://packagecloud.io/gpg.key | apt-key add -')
+        run('wget -qN https://packagecloud.io/gpg.key')
+        sudo('apt-key add gpg.key')
         append('/etc/apt/sources.list.d/dokku.list',
                'deb https://packagecloud.io/dokku/dokku/ubuntu/ trusty main', use_sudo=True)
 
