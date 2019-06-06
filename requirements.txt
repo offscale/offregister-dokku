@@ -1,2 +1,2 @@
-fabric
+fabric==1.14.0
 https://api.github.com/repos/offscale/offregister_fab_utils/zipball#egg=offregister_fab_utils
