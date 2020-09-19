@@ -1,4 +1,10 @@
-from io import StringIO
+from sys import version
+
+if version[0] == "2":
+    from cStringIO import StringIO
+
+else:
+    from io import StringIO
 from types import BooleanType
 from os import environ, path
 
