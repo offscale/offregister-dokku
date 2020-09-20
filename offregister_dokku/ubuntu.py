@@ -5,7 +5,7 @@ if version[0] == "2":
 
 else:
     from io import StringIO
-from types import BooleanType
+
 from os import environ, path
 
 from offregister_fab_utils.git import clone_or_update, url_to_git_dict
@@ -60,7 +60,7 @@ def step0(domain, *args, **kwargs):
                     "{com} {com}/{var} {type} {val}".format(
                         com="dokku",
                         var=v[0],
-                        val=str(v[1]).lower() if type(v[1]) is BooleanType else v[1],
+                        val=str(v[1]).lower() if type(v[1]) is type(bool) else v[1],
                         type=(
                             lambda t: {
                                 type(True): "boolean",
