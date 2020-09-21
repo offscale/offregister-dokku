@@ -1,4 +1,8 @@
 from setuptools import setup, find_packages
+from sys import version
+
+if version[0] == "2":
+    from itertools import imap as map, ifilter as filter
 from os import path, listdir
 from functools import partial
 from ast import parse
