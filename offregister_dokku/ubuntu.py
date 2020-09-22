@@ -1,5 +1,7 @@
 from sys import version
 
+from offutils.util import iteritems
+
 if version[0] == "2":
     from cStringIO import StringIO
 
@@ -69,7 +71,7 @@ def step0(domain, *args, **kwargs):
                             }.get(t, t)
                         )(type(v[1])),
                     )
-                    for k, v in list(config.items())
+                    for k, v in iteritems(config)
                     if v[1] is not None
                 )
             ),
