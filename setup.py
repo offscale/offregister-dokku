@@ -1,12 +1,14 @@
-from setuptools import setup, find_packages
 from sys import version
+
+from setuptools import find_packages, setup
 
 if version[0] == "2":
     from itertools import imap as map, ifilter as filter
-from os import path, listdir
-from functools import partial
+
 from ast import parse
 from distutils.sysconfig import get_python_lib
+from functools import partial
+from os import listdir, path
 
 if __name__ == "__main__":
     package_name = "offregister_dokku"

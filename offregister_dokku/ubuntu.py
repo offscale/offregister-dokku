@@ -10,16 +10,13 @@ else:
 
 from os import environ, path
 
-from offregister_fab_utils.git import clone_or_update, url_to_git_dict
-from offutils import it_consumes
-from pkg_resources import resource_filename
-
-from fabric.api import sudo, run
+from fabric.api import run, sudo
 from fabric.contrib.files import append, exists, put, upload_template
-
 from offregister_fab_utils.apt import apt_depends
 from offregister_fab_utils.fs import cmd_avail
+from offregister_fab_utils.git import clone_or_update, url_to_git_dict
 from offregister_fab_utils.ubuntu import docker
+from pkg_resources import resource_filename
 
 
 def step0(domain, *args, **kwargs):
