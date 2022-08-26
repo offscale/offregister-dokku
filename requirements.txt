@@ -1,2 +1,2 @@
-fab-classic
+fabric2
 https://api.github.com/repos/offscale/offregister-fab-utils/zipball#egg=offregister_fab_utils
