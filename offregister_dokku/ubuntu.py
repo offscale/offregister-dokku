@@ -10,11 +10,11 @@ else:
 
 from os import environ, path
 
-from fabric.contrib.files import append, exists
 from offregister_fab_utils.apt import apt_depends
 from offregister_fab_utils.fs import cmd_avail
 from offregister_fab_utils.git import clone_or_update, url_to_git_dict
 from offregister_fab_utils.ubuntu import docker
+from patchwork.files import append, exists
 from pkg_resources import resource_filename
 
 
@@ -47,9 +47,10 @@ def step0(c, domain, *args, **kwargs):
         c.run("wget -qN https://packagecloud.io/gpg.key")
         c.sudo("apt-key add gpg.key")
         append(
+            c,
+            c.sudo,
             "/etc/apt/sources.list.d/dokku.list",
             "deb https://packagecloud.io/dokku/dokku/ubuntu/ trusty main",
-            use_sudo=True,
         )
 
         c.put(
