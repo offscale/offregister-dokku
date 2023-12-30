@@ -140,6 +140,6 @@ def step0(c, domain, *args, **kwargs):
     return "installed dokku [already]"
 
 
-def step1(*args, **kwargs):
+def step1(c, *args, **kwargs):
     c.run("echo serve")
     return "served dokku"
