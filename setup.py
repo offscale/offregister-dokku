@@ -130,11 +130,11 @@ def main():
             package_name: list(
                 chain.from_iterable(
                     map(
-                        lambda folder: map(
-                            partial(path.join, folder),
-                            listdir(path.join(package_name_verbatim, folder)),
+                        lambda folder_join: map(
+                            folder_join,
+                            listdir(folder_join()),
                         ),
-                        (_data_join(),),
+                        (_data_join,),
                     )
                 )
             )
